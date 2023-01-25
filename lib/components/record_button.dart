@@ -102,15 +102,23 @@ class _RecordButtonState extends State<RecordButton>
       child: ButtonTheme(
         minWidth: 70.0,
         height: 70.0,
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             widget.onClick(widget.isActive);
           },
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40.0),
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40.0),
+              ),
+            ),
+            backgroundColor: MaterialStateProperty.all<Color>(
+              widget.isActive ? Colors.red : Color(0xFFededed),
+            ),
+            elevation: MaterialStateProperty.all<double>(
+              widget.isActive ? 10 : 0,
+            ),
           ),
-          elevation: widget.isActive ? null: 0,
-          color: widget.isActive ? Colors.red : Color(0xFFededed),
           child: Icon(
             Icons.mic,
             color: Colors.white,

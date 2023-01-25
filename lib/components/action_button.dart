@@ -14,7 +14,6 @@ class ActionButton extends StatefulWidget {
 }
 
 class _ActionButtonState extends State<ActionButton> {
-
   Widget _displayIcon() {
     if (this.widget.icon != null) {
       return Icon(
@@ -37,24 +36,26 @@ class _ActionButtonState extends State<ActionButton> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
-      child: FlatButton(
-        padding: EdgeInsets.only(
+      child: Padding(
+        padding: const EdgeInsets.only(
           left: 8.0,
           right: 8.0,
           top: 2.0,
           bottom: 2.0,
         ),
-        onPressed: () {
-          widget.onClick();
-        },
-        child: Column(
-          children: <Widget>[
-            _displayIcon(),
-            Text(
-              this.widget.text,
-              style: TextStyle(fontSize: 12),
-            ),
-          ],
+        child: ElevatedButton(
+          onPressed: () {
+            widget.onClick();
+          },
+          child: Column(
+            children: <Widget>[
+              _displayIcon(),
+              Text(
+                this.widget.text,
+                style: TextStyle(fontSize: 12),
+              ),
+            ],
+          ),
         ),
       ),
     );

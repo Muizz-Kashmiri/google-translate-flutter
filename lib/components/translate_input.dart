@@ -44,7 +44,7 @@ class _TranslateInputState extends State<TranslateInput> {
           .then((translatedText) {
         if (translatedText != _textTranslated) {
           setState(() {
-            _textTranslated = translatedText;
+            _textTranslated = translatedText as String;
           });
         }
       });
@@ -71,7 +71,7 @@ class _TranslateInputState extends State<TranslateInput> {
                 controller: _textEditingController,
                 maxLines: null,
                 keyboardType: TextInputType.multiline,
-                onChanged:_onTextChanged,
+                onChanged: _onTextChanged,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   suffixIcon: Container(

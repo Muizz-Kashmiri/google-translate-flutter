@@ -131,7 +131,7 @@ class _ConversationPageState extends State<ConversationPage> {
             from: firstLanguageCode, to: secondLanguageCode)
         .then((translatedText) {
       setState(() {
-        _textTranslated = translatedText;
+        _textTranslated = translatedText as String;
       });
     });
 
@@ -154,7 +154,7 @@ class _ConversationPageState extends State<ConversationPage> {
             from: 'en', to: _translateProvider.firstLanguage.code)
         .then((translatedText) {
       setState(() {
-        _talkNowTextLanguage1 = translatedText;
+        _talkNowTextLanguage1 = translatedText as String;
       });
     });
 
@@ -163,7 +163,7 @@ class _ConversationPageState extends State<ConversationPage> {
             from: 'en', to: _translateProvider.secondLanguage.code)
         .then((translatedText) {
       setState(() {
-        _talkNowTextLanguage2 = translatedText;
+        _talkNowTextLanguage2 = translatedText as String;
       });
     });
   }
